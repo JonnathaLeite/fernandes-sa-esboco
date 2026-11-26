@@ -197,6 +197,11 @@ img {
   stroke-linejoin: round;
 }
 
+/* Mantém expressões curtas na mesma linha, como "Ji-Paraná, RO". */
+.sem-quebra {
+  white-space: nowrap;
+}
+
 .pendente {
   padding: 0 0.25rem;
   border-radius: 3px;
@@ -551,7 +556,10 @@ img {
 }
 
 .capa-inicio h1 {
-  max-width: 14ch;
+  max-width: 24ch;
+  font-size: clamp(2.1rem, 4vw, 3.5rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
   text-wrap: balance;
 }
 
