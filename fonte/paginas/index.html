@@ -146,22 +146,32 @@ menu: inicio
     <span>Últimas</span>
     notícias
   </h2>
-  <div class="post-grid">{{ ultimas_noticias }}</div>
+  <div class="post-grid post-grid-carrossel">{{ ultimas_noticias }}</div>
+  <p class="carrossel-dica" aria-hidden="true">Arraste para o lado para ver mais</p>
   <p class="noticias-todas">
     <a class="button button-outline" href="{{ raiz }}blog.html">Ver todos os artigos</a>
   </p>
 </section>
 
 <section class="wrap section localizacao" aria-labelledby="localizacao-titulo">
-  <div class="cabecalho-secao">
-    <div>
-      <p class="eyebrow">Localização</p>
-      <h2 id="localizacao-titulo" class="titulo-duplo"><span>Como</span> chegar</h2>
-    </div>
-    <p>
-      Rua Raimundo Alves de Abreu da Silva, 255, Centro, Ji-Paraná – RO. Atendimento de segunda a
-      sexta, das 8h às 18h.
-    </p>
+  <div class="localizacao-info">
+    <p class="eyebrow">Localização</p>
+    <h2 id="localizacao-titulo" class="titulo-duplo"><span>Como</span> chegar</h2>
+    <dl class="localizacao-dados">
+      <div>
+        <dt>Endereço</dt>
+        <dd>
+          Rua Raimundo Alves de Abreu da Silva, 255
+          <br />
+          Centro, Ji-Paraná – RO, 76900-020
+        </dd>
+      </div>
+      <div>
+        <dt>Atendimento</dt>
+        <dd>Segunda a sexta, das 8h às 18h</dd>
+      </div>
+    </dl>
+    {{ mapa_botoes }}
   </div>
   {{ mapa }}
 </section>

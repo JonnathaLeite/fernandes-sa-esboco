@@ -26,11 +26,12 @@
       content="https://jonnathaleite.github.io/fernandes-sa-esboco/assets/img/compartilhar.webp" />
     <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml" />
     <link rel="preload" href="assets/fontes/dmsans.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="stylesheet" href="assets/css/estilo.css" />
-    <script src="assets/js/menu.js" defer></script>
-    <script src="assets/js/duvidas.js" defer></script>
-    <script src="assets/js/servicos.js" defer></script>
-    <script src="assets/js/horario.js" defer></script>
+    <link rel="stylesheet" href="assets/css/estilo.css?v=17d9ce6e" />
+    <script src="assets/js/menu.js?v=9018db42" defer></script>
+    <script src="assets/js/noticias.js?v=dc566bdf" defer></script>
+    <script src="assets/js/duvidas.js?v=92aeaeca" defer></script>
+    <script src="assets/js/servicos.js?v=f7852d35" defer></script>
+    <script src="assets/js/horario.js?v=5762a302" defer></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -550,7 +551,7 @@
           <span>Últimas</span>
           notícias
         </h2>
-        <div class="post-grid">
+        <div class="post-grid post-grid-carrossel">
           <article class="post-card">
             <a
               class="post-card-capa"
@@ -642,45 +643,54 @@
             <time datetime="2026-11-26">26 de novembro de 2026</time>
           </article>
         </div>
+        <p class="carrossel-dica" aria-hidden="true">Arraste para o lado para ver mais</p>
         <p class="noticias-todas">
           <a class="button button-outline" href="blog.html">Ver todos os artigos</a>
         </p>
       </section>
 
       <section class="wrap section localizacao" aria-labelledby="localizacao-titulo">
-        <div class="cabecalho-secao">
-          <div>
-            <p class="eyebrow">Localização</p>
-            <h2 id="localizacao-titulo" class="titulo-duplo"><span>Como</span> chegar</h2>
+        <div class="localizacao-info">
+          <p class="eyebrow">Localização</p>
+          <h2 id="localizacao-titulo" class="titulo-duplo"><span>Como</span> chegar</h2>
+          <dl class="localizacao-dados">
+            <div>
+              <dt>Endereço</dt>
+              <dd>
+                Rua Raimundo Alves de Abreu da Silva, 255
+                <br />
+                Centro, Ji-Paraná – RO, 76900-020
+              </dd>
+            </div>
+            <div>
+              <dt>Atendimento</dt>
+              <dd>Segunda a sexta, das 8h às 18h</dd>
+            </div>
+          </dl>
+          <div class="office-map-actions">
+            <a
+              class="button"
+              href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua%20Raimundo%20Alves%20de%20Abreu%20da%20Silva%2C%20255%2C%20Centro%2C%20Ji-Paran%C3%A1%20-%20RO%2C%2076900-020"
+              target="_blank"
+              rel="noopener">
+              <svg class="icone" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M12 21s-7-6.2-7-11.5a7 7 0 1 1 14 0C19 14.8 12 21 12 21Z" />
+                <circle cx="12" cy="9.5" r="2.5" />
+              </svg>
+              Google Maps
+            </a>
+            <a
+              class="button button-outline"
+              href="https://waze.com/ul?q=Rua%20Raimundo%20Alves%20de%20Abreu%20da%20Silva%2C%20255%2C%20Centro%2C%20Ji-Paran%C3%A1%20-%20RO%2C%2076900-020&amp;navigate=yes"
+              target="_blank"
+              rel="noopener">
+              <svg class="icone" aria-hidden="true" viewBox="0 0 24 24">
+                <path d="M5 16V11l2-5h10l2 5v5" />
+                <path d="M3 16h18v3H3zM7 19v1.5M17 19v1.5M5 11h14" />
+              </svg>
+              Waze
+            </a>
           </div>
-          <p>
-            Rua Raimundo Alves de Abreu da Silva, 255, Centro, Ji-Paraná – RO. Atendimento de
-            segunda a sexta, das 8h às 18h.
-          </p>
-        </div>
-        <div class="office-map-actions">
-          <a
-            class="button"
-            href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua%20Raimundo%20Alves%20de%20Abreu%20da%20Silva%2C%20255%2C%20Centro%2C%20Ji-Paran%C3%A1%20-%20RO%2C%2076900-020"
-            target="_blank"
-            rel="noopener">
-            <svg class="icone" aria-hidden="true" viewBox="0 0 24 24">
-              <path d="M12 21s-7-6.2-7-11.5a7 7 0 1 1 14 0C19 14.8 12 21 12 21Z" />
-              <circle cx="12" cy="9.5" r="2.5" />
-            </svg>
-            Google Maps
-          </a>
-          <a
-            class="button button-outline"
-            href="https://waze.com/ul?q=Rua%20Raimundo%20Alves%20de%20Abreu%20da%20Silva%2C%20255%2C%20Centro%2C%20Ji-Paran%C3%A1%20-%20RO%2C%2076900-020&amp;navigate=yes"
-            target="_blank"
-            rel="noopener">
-            <svg class="icone" aria-hidden="true" viewBox="0 0 24 24">
-              <path d="M5 16V11l2-5h10l2 5v5" />
-              <path d="M3 16h18v3H3zM7 19v1.5M17 19v1.5M5 11h14" />
-            </svg>
-            Waze
-          </a>
         </div>
         <iframe
           class="office-map-frame"

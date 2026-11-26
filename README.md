@@ -20,7 +20,7 @@ Site estático em HTML, CSS e JavaScript puro, sem framework e sem dependências
 │   └── videos/               Perguntas frequentes e gerador dos vídeos
 ├── assets/
 │   ├── css/estilo.css        Estilos, organizados por seção (índice no topo do arquivo)
-│   ├── js/                   menu.js · servicos.js · duvidas.js · horario.js
+│   ├── js/                   menu.js · servicos.js · noticias.js · duvidas.js · horario.js
 │   ├── img/                  Logo, fotos, equipe e capas do blog
 │   ├── fontes/               DM Sans e Gelasio (WOFF2, licença OFL)
 │   └── videos/               Vídeos das dúvidas frequentes

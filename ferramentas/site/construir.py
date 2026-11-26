@@ -16,6 +16,7 @@ são substituídos durante a montagem.
 Uso:  python ferramentas/site/construir.py
 """
 from datetime import date
+from hashlib import sha1
 from html import escape
 from pathlib import Path
 from urllib.parse import quote
@@ -71,6 +72,11 @@ def preencher(modelo, valores):
 
 def parte(nome):
     return (FONTE / "partes" / f"{nome}.html").read_text(encoding="utf-8")
+
+
+def versao(arquivo):
+    """Impressão digital curta do arquivo, usada para o navegador não servir versões antigas."""
+    return sha1((RAIZ / arquivo).read_bytes()).hexdigest()[:8]
 
 
 def data_por_extenso(iso):
@@ -219,6 +225,12 @@ def montar(meta, conteudo, raiz, caminho_saida, extras):
         "imagem": URL_SITE + meta.get("imagem", "assets/img/compartilhar.webp"),
         "menu": montar_menu(meta.get("menu", ""), raiz),
         "ano": date.today().year,
+        "v_css": versao("assets/css/estilo.css"),
+        "v_menu": versao("assets/js/menu.js"),
+        "v_servicos": versao("assets/js/servicos.js"),
+        "v_noticias": versao("assets/js/noticias.js"),
+        "v_duvidas": versao("assets/js/duvidas.js"),
+        "v_horario": versao("assets/js/horario.js"),
         **extras,
     }
     valores["capa"] = preencher(parte("capa-pagina"), {**valores, **meta}) if meta.get("capa") else ""
@@ -236,6 +248,7 @@ def main():
     extras = {
         "duvidas": secao_duvidas(),
         "mapa": parte("mapa"),
+        "mapa_botoes": parte("mapa-botoes"),
         "servicos_home": servicos_home(),
         "servicos_detalhes": servicos_detalhes(),
     }
