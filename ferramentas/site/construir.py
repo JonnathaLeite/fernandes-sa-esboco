@@ -18,6 +18,7 @@ Uso:  python ferramentas/site/construir.py
 from datetime import date
 from html import escape
 from pathlib import Path
+from urllib.parse import quote
 import re
 import sys
 
@@ -26,7 +27,9 @@ FONTE = RAIZ / "fonte"
 URL_SITE = "https://jonnathaleite.github.io/fernandes-sa-esboco/"
 
 sys.path.insert(0, str(RAIZ / "ferramentas" / "videos"))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 from perguntas import PERGUNTAS, TEMAS  # noqa: E402
+from servicos import SERVICOS  # noqa: E402
 
 MENU = [
     ("inicio", "Home", "index.html"),
@@ -152,6 +155,59 @@ def secao_duvidas():
     })
 
 
+def link_whatsapp(mensagem):
+    return "https://wa.me/5569992978268?text=" + quote(mensagem)
+
+
+def detalhes_servico(servico):
+    """Resumo, público e forma de atuação: comum à Home e à página de serviços."""
+    itens = "".join(f"<li>{escape(item)}</li>" for item in servico["para_quem"])
+    return f"""<p class="servico-resumo">{escape(servico['resumo'])}</p>
+<div class="servico-colunas">
+  <div>
+    <h4>Para quem é</h4>
+    <ul>{itens}</ul>
+  </div>
+  <div>
+    <h4>Como atuamos</h4>
+    <p>{escape(servico['como_atuamos'])}</p>
+  </div>
+</div>
+<div class="servico-video" hidden></div>
+<p class="servico-acoes">
+  <a class="button" href="duvidas.html#{servico['video']}" data-video-inline="assets/videos/{servico['video']}.mp4" data-poster="assets/videos/{servico['video']}.webp">
+    <span aria-hidden="true">▶</span> Assistir vídeo explicativo
+  </a>
+  <a class="button button-outline" href="{escape(link_whatsapp(f'Olá! Vim pelo site e gostaria de falar sobre {servico["nome"]}.'))}" target="_blank" rel="noopener">
+    Falar sobre o meu caso
+  </a>
+</p>"""
+
+
+def servicos_home():
+    cards = []
+    for servico in SERVICOS:
+        cards.append(f"""<details class="servico-card" name="servicos">
+  <summary>
+    <h3>{escape(servico['nome'])}</h3>
+    <span class="servico-card-sinal" aria-hidden="true"></span>
+  </summary>
+  <div class="servico-card-corpo">
+    {detalhes_servico(servico)}
+  </div>
+</details>""")
+    return '<div class="servicos-resumo">\n' + "\n".join(cards) + "\n</div>"
+
+
+def servicos_detalhes():
+    indice = "".join(f'<a href="#{s["slug"]}">{escape(s["nome"])}</a>' for s in SERVICOS)
+    artigos = "".join(f"""<article class="servico" id="{s['slug']}">
+  <h2>{escape(s['nome'])}</h2>
+  {detalhes_servico(s)}
+</article>""" for s in SERVICOS)
+    return f'<nav class="servicos-indice" aria-label="Serviços nesta página">{indice}</nav>\n{artigos}'
+
+
 # Montagem ---------------------------------------------------------------------
 
 def montar(meta, conteudo, raiz, caminho_saida, extras):
@@ -177,7 +233,12 @@ def montar(meta, conteudo, raiz, caminho_saida, extras):
 
 def main():
     artigos = carregar_artigos()
-    extras = {"duvidas": secao_duvidas(), "mapa": parte("mapa")}
+    extras = {
+        "duvidas": secao_duvidas(),
+        "mapa": parte("mapa"),
+        "servicos_home": servicos_home(),
+        "servicos_detalhes": servicos_detalhes(),
+    }
 
     for caminho in sorted((FONTE / "paginas").glob("*.html")):
         meta, conteudo = ler_documento(caminho)

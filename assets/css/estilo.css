@@ -616,44 +616,157 @@ img {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1rem;
-  margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
-.servicos-resumo a {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 1.5rem;
+/* Cards que se abrem no lugar. Aberto, o card ocupa a linha inteira. */
+.servico-card {
   border: 1px solid var(--linha);
   border-top: 2px solid var(--vinho);
   border-radius: var(--raio);
-  color: var(--texto);
-  text-decoration: none;
-  transition:
-    box-shadow 0.2s,
-    transform 0.2s;
+  background: #fff;
+  transition: box-shadow 0.2s;
 }
 
-.servicos-resumo a:hover {
+.servico-card:hover,
+.servico-card[open] {
   box-shadow: var(--sombra);
-  transform: translateY(-2px);
 }
 
-.servicos-resumo h3 {
+.servico-card[open] {
+  grid-column: 1 / -1;
+}
+
+.servico-card > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 96px;
+  padding: 1.25rem 1.5rem;
+  cursor: pointer;
+  list-style: none;
+}
+
+/* Fechados, os cards da mesma linha ficam com a mesma altura. */
+.servico-card:not([open]) > summary {
+  height: 100%;
+}
+
+.servico-card > summary::-webkit-details-marker {
+  display: none;
+}
+
+.servico-card h3 {
   color: var(--vinho);
-  font-size: 1.45rem;
+  font-size: clamp(1.55rem, 2.3vw, 1.95rem);
+  line-height: 1.15;
 }
 
-.servicos-resumo p {
-  margin: 0.6rem 0 1rem;
+/* Sinal de + que vira − quando o card está aberto */
+.servico-card-sinal {
+  position: relative;
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--linha);
+  border-radius: 50%;
 }
 
-.saiba-mais {
-  margin-top: auto;
+.servico-card-sinal::before,
+.servico-card-sinal::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 14px;
+  height: 2px;
+  margin: -1px 0 0 -7px;
+  border-radius: 2px;
+  background: var(--vinho);
+  transition: transform 0.25s;
+}
+
+.servico-card-sinal::after {
+  transform: rotate(90deg);
+}
+
+.servico-card[open] .servico-card-sinal::after {
+  transform: rotate(0);
+}
+
+.servico-card-corpo {
+  padding: 0 1.5rem 1.5rem;
+  animation: card-abre 0.3s ease-out;
+}
+
+@keyframes card-abre {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Conteúdo comum aos cards da Home e à página de serviços */
+.servico-resumo {
+  max-width: 70ch;
+  margin: 0 0 1.5rem;
+  font-size: 1.05rem;
+}
+
+.servico-colunas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 3rem;
+}
+
+.servico-colunas h4 {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+  text-transform: uppercase;
+}
+
+.servico-colunas ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.servico-colunas li {
+  margin: 0.3rem 0;
+}
+
+.servico-colunas li::marker {
   color: var(--vinho);
-  font-weight: 700;
+}
+
+.servico-colunas p {
+  margin: 0;
+}
+
+.servico-video {
+  max-width: 760px;
+  margin-top: 1.5rem;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  border-radius: 12px;
+  background: #1d1518;
+}
+
+.servico-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.servico-acoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin: 1.5rem 0 0;
 }
 
 .como-trabalhamos {
@@ -843,40 +956,8 @@ img {
   font-size: clamp(1.9rem, 3.5vw, 2.6rem);
 }
 
-.servico-resumo {
-  max-width: 70ch;
-  margin: 0.9rem 0 1.5rem;
-  font-size: 1.08rem;
-}
-
-.servico-colunas {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5rem 3rem;
-}
-
-.servico h3 {
-  margin-bottom: 0.5rem;
-  font: 700 1rem/1.4 var(--fonte-texto);
-  letter-spacing: 0;
-  text-transform: uppercase;
-}
-
-.servico ul {
-  margin: 0;
-  padding-left: 1.2rem;
-}
-
-.servico li {
-  margin: 0.3rem 0;
-}
-
-.servico li::marker {
-  color: var(--vinho);
-}
-
-.servico-colunas p {
-  margin: 0;
+.servico .servico-resumo {
+  margin-top: 0.9rem;
 }
 
 @media (max-width: 760px) {
