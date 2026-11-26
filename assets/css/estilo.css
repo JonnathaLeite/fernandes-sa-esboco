@@ -209,6 +209,39 @@ img {
   color: var(--texto);
 }
 
+/* Indicador "aberto/fechado", atualizado por horario.js */
+.open-status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: fit-content;
+  margin-top: 0.5rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 999px;
+  background: #f1e7e7;
+  color: #5b2129;
+  font-size: 0.85rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.open-status::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #a35a62;
+}
+
+.open-status.is-open {
+  background: #e3f1e6;
+  color: #1f5b2e;
+}
+
+.open-status.is-open::before {
+  background: #2e8b47;
+}
+
 /* Botões */
 .button {
   display: inline-flex;
@@ -1573,6 +1606,10 @@ img {
   margin: 0.2rem 0 0;
 }
 
+.localizacao-dados .button {
+  margin-top: 0.2rem;
+}
+
 @media (max-width: 860px) {
   .contato,
   .localizacao {
@@ -1589,7 +1626,7 @@ img {
 
 .footer-directory {
   display: grid;
-  grid-template-columns: 1.35fr 1fr 1fr 1.25fr;
+  grid-template-columns: 1.5fr 1fr 1fr;
   gap: 2rem;
 }
 
@@ -1649,51 +1686,6 @@ img {
   border-color: var(--vinho);
   background: var(--vinho);
   color: #fff;
-}
-
-.footer-hours p {
-  margin: 0.35rem 0 0.75rem;
-  font-size: 0.92rem;
-}
-
-.footer-hours small {
-  color: var(--texto-suave);
-}
-
-.footer-hours .button {
-  margin-top: 0.25rem;
-}
-
-.open-status {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.25rem 0.75rem;
-  border-radius: 999px;
-  background: #f1e7e7;
-  color: #5b2129;
-  font-weight: 700;
-}
-
-.footer-hours .open-status {
-  font-size: 0.85rem;
-}
-
-.open-status::before {
-  content: '';
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: #a35a62;
-}
-
-.open-status.is-open {
-  background: #e3f1e6;
-  color: #1f5b2e;
-}
-
-.open-status.is-open::before {
-  background: #2e8b47;
 }
 
 .footer-legal {
