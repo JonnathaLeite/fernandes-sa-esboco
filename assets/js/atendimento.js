@@ -10,13 +10,20 @@
 
   function agora() {
     const parts = new Intl.DateTimeFormat('en-US', {
-      timeZone: 'America/Porto_Velho', weekday: 'short', hour: 'numeric', minute: 'numeric', hourCycle: 'h23'
+      timeZone: 'America/Porto_Velho',
+      weekday: 'short',
+      hour: 'numeric',
+      minute: 'numeric',
+      hourCycle: 'h23',
     }).formatToParts(new Date());
-    const get = type => parts.find(p => p.type === type).value;
-    return { dia: DIAS.indexOf(get('weekday')), hora: Number(get('hour')) + Number(get('minute')) / 60 };
+    const get = (type) => parts.find((p) => p.type === type).value;
+    return {
+      dia: DIAS.indexOf(get('weekday')),
+      hora: Number(get('hour')) + Number(get('minute')) / 60,
+    };
   }
 
-  const util = dia => dia >= 1 && dia <= 5;
+  const util = (dia) => dia >= 1 && dia <= 5;
 
   function atualizar() {
     const { dia, hora } = agora();
