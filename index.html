@@ -13,9 +13,7 @@
 <meta property="og:title" content="Fernandes &amp; Sá Advocacia | Direito Previdenciário em Ji-Paraná">
 <meta property="og:description" content="Escritório de Direito Previdenciário em Ji-Paraná, RO. Aposentadorias, BPC, benefícios por incapacidade, pensão por morte e recursos ao INSS.">
 <meta property="og:image" content="documentos.webp">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,600;9..40,700&amp;display=swap">
+<link rel="preload" href="fontes/dmsans.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="estilo.css">
 <script type="application/ld+json">
 {
@@ -44,8 +42,8 @@
 }
 </script>
 <script src="banner.js" defer></script>
-<script src="videoteca.js" defer></script>
-<script src="localizacao.js" defer></script>
+<script src="duvidas.js" defer></script>
+<script src="atendimento.js" defer></script>
 </head>
 <body>
 <a class="skip" href="#conteudo">Ir para o conteúdo</a>
@@ -55,9 +53,8 @@
     <nav aria-label="Navegação principal">
       <a href="#atuacao">Atuação</a>
       <a href="#guias">Guias</a>
-      <a href="#videos">Vídeos</a>
       <a href="#meu-inss">Meu INSS</a>
-      <a href="#duvidas">Dúvidas frequentes</a>
+      <a href="#duvidas">Dúvidas em vídeo</a>
       <a href="#sobre">Sobre nós</a>
       <a href="#advogados">Advogados</a>
       <a class="ig-link" href="https://www.instagram.com/fernandesesa.adv/" target="_blank" rel="noopener" aria-label="Instagram @fernandesesa.adv"><svg class="ig" aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".9" fill="currentColor" stroke="none"/></svg><span>Instagram</span></a>
@@ -80,10 +77,10 @@
         <a class="button" href="guia-cnis.html">Ler o guia de CNIS</a>
       </div>
       <div class="hero-content" data-slide hidden>
-        <p class="eyebrow">Histórico previdenciário</p>
-        <h2>Previdência em vídeo</h2>
-        <p>Explicações sobre aposentadoria, contribuições e pedidos ao INSS.</p>
-        <a class="button" href="#videos">Explorar a videoteca</a>
+        <p class="eyebrow">Dúvidas frequentes</p>
+        <h2>Suas dúvidas respondidas em vídeo</h2>
+        <p>Dez perguntas que mais chegam ao escritório, em menos de um minuto cada.</p>
+        <a class="button" href="#duvidas">Ver as respostas</a>
       </div>
       <div class="hero-content" data-slide hidden>
         <p class="eyebrow">Serviços oficiais</p>
@@ -95,7 +92,7 @@
     <div class="banner-controls" hidden>
       <div class="banner-dots" role="group" aria-label="Escolher destaque">
         <button type="button" data-dot aria-label="Guia de CNIS" aria-controls="banner-painel" aria-current="true"></button>
-        <button type="button" data-dot aria-label="Videoteca previdenciária" aria-controls="banner-painel"></button>
+        <button type="button" data-dot aria-label="Dúvidas em vídeo" aria-controls="banner-painel"></button>
         <button type="button" data-dot aria-label="Acompanhar pedido" aria-controls="banner-painel"></button>
       </div>
       <button class="banner-toggle" type="button" data-toggle aria-controls="banner-painel">Pausar</button>
@@ -111,12 +108,12 @@
       <p>Acompanhamos segurados urbanos e rurais desde a análise dos documentos até o pedido no INSS, o recurso administrativo ou a ação na Justiça, quando necessária.</p>
     </div>
     <ul class="practice-list">
-      <li><h3>Aposentadorias</h3><p>Por idade, por tempo de contribuição, rural, especial e da pessoa com deficiência, incluindo as regras de transição da reforma de 2019.</p></li>
-      <li><h3>BPC/LOAS</h3><p>Benefício assistencial para idosos a partir de 65 anos e pessoas com deficiência em situação de baixa renda.</p></li>
-      <li><h3>Benefícios por incapacidade</h3><p>Auxílio por incapacidade temporária, aposentadoria por incapacidade permanente e auxílio-acidente.</p></li>
-      <li><h3>Pensão por morte</h3><p>Análise da qualidade de segurado, da condição de dependente e da documentação necessária.</p></li>
-      <li><h3>Revisões e planejamento</h3><p>Conferência do CNIS, cálculo do tempo de contribuição e revisão de benefícios já concedidos.</p></li>
-      <li><h3>Recursos e ações judiciais</h3><p>Recurso ao Conselho de Recursos da Previdência Social e ações na Justiça Federal após o indeferimento.</p></li>
+      <li id="servico-aposentadorias"><h3>Aposentadorias</h3><p>Por idade, por tempo de contribuição, rural, especial e da pessoa com deficiência, incluindo as regras de transição da reforma de 2019.</p></li>
+      <li id="servico-bpc-loas"><h3>BPC/LOAS</h3><p>Benefício assistencial para idosos a partir de 65 anos e pessoas com deficiência em situação de baixa renda.</p></li>
+      <li id="servico-incapacidade"><h3>Benefícios por incapacidade</h3><p>Auxílio por incapacidade temporária, aposentadoria por incapacidade permanente e auxílio-acidente.</p></li>
+      <li id="servico-pensao"><h3>Pensão por morte</h3><p>Análise da qualidade de segurado, da condição de dependente e da documentação necessária.</p></li>
+      <li id="servico-revisoes"><h3>Revisões e planejamento</h3><p>Conferência do CNIS, cálculo do tempo de contribuição e revisão de benefícios já concedidos.</p></li>
+      <li id="servico-recursos"><h3>Recursos e ações judiciais</h3><p>Recurso ao Conselho de Recursos da Previdência Social e ações na Justiça Federal após o indeferimento.</p></li>
     </ul>
     <div class="practice-cta">
       <p>Cada caso depende do histórico de contribuições e dos documentos disponíveis. Fale com o escritório para agendar um atendimento.</p>
@@ -170,45 +167,113 @@
       </article>
     </div>
   </section>
-  <section class="video-section" id="videos" aria-labelledby="videos-titulo">
+  <section class="qa-section" id="duvidas" aria-labelledby="duvidas-titulo">
     <div class="wrap section">
-      <p class="eyebrow">Direito Previdenciário</p>
-      <h2 id="videos-titulo">Videoteca</h2>
-      <div class="video-topics" role="group" aria-label="Temas da videoteca" hidden>
-        <button type="button" data-topic="todos" aria-pressed="true">Todos</button>
-        <button type="button" data-topic="cnis" aria-pressed="false">CNIS</button>
-        <button type="button" data-topic="aposentadoria" aria-pressed="false">Aposentadoria</button>
-        <button type="button" data-topic="pedido" aria-pressed="false">Pedidos ao INSS</button>
+      <div class="qa-head">
+        <div>
+          <p class="eyebrow">Dúvidas frequentes</p>
+          <h2 id="duvidas-titulo">Respostas em vídeo</h2>
+        </div>
+        <p>As perguntas que mais chegam ao escritório, respondidas em vídeos de menos de um minuto, com resumo escrito e link para a fonte oficial.</p>
       </div>
-      <div class="video-grid">
-        <article class="video-card" data-episode="cnis">
-          <a class="video-cover" href="videos/cnis.mp4" aria-label="Reproduzir Como conferir o CNIS"><img src="videos/cnis.webp" alt="" width="1280" height="720" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
-          <div class="video-copy"><h3>Como conferir o CNIS</h3><p>Vínculos, datas, remunerações e recolhimentos.</p><a class="video-reading" href="guia-cnis.html">Ler o guia e o checklist</a></div>
-          <details class="video-transcript"><summary>Ler a transcrição</summary><ol><li>Busque “Extrato de Contribuição (CNIS)” no Meu INSS e salve uma cópia.</li><li>Compare vínculos e datas com sua carteira de trabalho. Confira também remunerações e recolhimentos.</li><li>Se faltar vínculo ou pagamento, anote o período e reúna os comprovantes.</li></ol></details>
-        </article>
-        <article class="video-card" data-episode="aposentadoria">
-          <a class="video-cover" href="videos/aposentadoria.mp4" aria-label="Reproduzir Antes de pedir a aposentadoria"><img src="videos/aposentadoria.webp" alt="" width="1280" height="720" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
-          <div class="video-copy"><h3>Antes de pedir a aposentadoria</h3><p>Três verificações para fazer no Meu INSS.</p><a class="video-reading" href="#aposentadoria">Entender as regras</a></div>
-          <details class="video-transcript"><summary>Ler a transcrição</summary><ol><li>Revise os vínculos e os recolhimentos registrados no CNIS.</li><li>Use “Simular Aposentadoria” como estimativa baseada nos dados do sistema.</li><li>Confira os requisitos da modalidade e separe os documentos dos períodos e situações que precisam de comprovação.</li></ol></details>
-        </article>
-        <article class="video-card" data-episode="pedido">
-          <a class="video-cover" href="videos/pedido.mp4" aria-label="Reproduzir Como acompanhar um pedido"><img src="videos/pedido.webp" alt="" width="1280" height="720" loading="lazy"><span class="play" aria-hidden="true">▶</span></a>
-          <div class="video-copy"><h3>Como acompanhar um pedido</h3><p>Onde ler exigências e consultar a decisão.</p><a class="video-reading" href="#meu-inss">Ver o passo a passo</a></div>
-          <details class="video-transcript"><summary>Ler a transcrição</summary><ol><li>Entre no Meu INSS com sua conta gov.br e abra os detalhes em “Consultar Pedidos”.</li><li>Se houver exigência, leia o que foi solicitado e confira o prazo para responder.</li><li>Quando sair a decisão, leia o motivo e as orientações na comunicação.</li></ol></details>
-        </article>
+      <div class="qa-topics" role="group" aria-label="Filtrar perguntas por tema" hidden>
+        <button type="button" data-topic="todos" aria-pressed="true">Todas <span>10</span></button><button type="button" data-topic="aposentadoria" aria-pressed="false">Aposentadoria</button><button type="button" data-topic="beneficios" aria-pressed="false">Benefícios</button><button type="button" data-topic="inss" aria-pressed="false">Meu INSS</button>
       </div>
-      <div class="video-sources">
-        <h3>Tutoriais do INSS</h3>
-        <a href="https://www.gov.br/inss/pt-br/centrais-de-conteudo/videos/conheca-o-meu-inss">Conheça o aplicativo Meu INSS</a>
-        <a href="https://www.gov.br/inss/pt-br/centrais-de-conteudo/videos/meu-inss-como-solicitar-um-servico">Como solicitar um serviço</a>
+      <div class="qa-layout">
+        <div class="qa-list">
+        <details class="qa" id="tempo-de-contribuicao" data-topic="aposentadoria" data-video="videos/tempo-de-contribuicao.mp4" data-poster="videos/tempo-de-contribuicao.webp">
+          <summary><span class="qa-num" aria-hidden="true">01</span><span class="qa-q">Quanto tempo preciso contribuir para me aposentar?</span><span class="qa-meta">Aposentadoria · <span class="qa-play" aria-hidden="true">▶</span> 0:36</span></summary>
+          <div class="qa-body">
+            <p>Depende da modalidade e de quando você começou a contribuir. Na regra geral criada pela reforma de 2019, a idade mínima é de 62 anos para mulheres e 65 para homens.</p><p>O tempo mínimo de contribuição é de 15 anos para mulheres e de 20 anos para homens, ou 15 anos para os homens que já contribuíam antes da reforma. Trabalhadores rurais, professores e quem já era segurado antes de 13/11/2019 podem ter regras próprias ou de transição.</p>
+            <p class="qa-links"><a class="qa-nojs" href="videos/tempo-de-contribuicao.mp4">Assistir ao vídeo (0:36)</a><a href="https://www.gov.br/pt-br/servicos/simular-aposentadoria" target="_blank" rel="noopener">Simular aposentadoria no Meu INSS</a></p>
+            <details class="qa-transcript"><summary>Ler a transcrição do vídeo</summary><ol><li><strong>A regra geral.</strong> Desde a reforma de 2019, a regra geral pede 62 anos de idade para mulheres e 65 para homens.</li><li><strong>Tempo mínimo.</strong> Mulheres precisam de 15 anos de contribuição. Homens, de 20 anos, ou 15 se já contribuíam antes da reforma.</li><li><strong>Regras próprias.</strong> Trabalhadores rurais, professores e quem já contribuía antes de 2019 podem ter regras próprias ou de transição.</li></ol></details>
+          </div>
+        </details>
+        <details class="qa" id="antes-de-pedir" data-topic="aposentadoria" data-video="videos/antes-de-pedir.mp4" data-poster="videos/antes-de-pedir.webp">
+          <summary><span class="qa-num" aria-hidden="true">02</span><span class="qa-q">O que preciso conferir antes de pedir a aposentadoria?</span><span class="qa-meta">Aposentadoria · <span class="qa-play" aria-hidden="true">▶</span> 0:36</span></summary>
+          <div class="qa-body">
+            <p>Identifique a modalidade e confira se você cumpre os requisitos de idade, carência ou tempo de contribuição.</p><p>Revise vínculos, salários e contribuições no CNIS e reúna os comprovantes dos períodos que precisam ser demonstrados, inclusive os de atividade rural, quando for o caso.</p>
+            <p class="qa-links"><a class="qa-nojs" href="videos/antes-de-pedir.mp4">Assistir ao vídeo (0:36)</a><a href="guia-cnis.html">Ler o guia e o checklist do CNIS</a></p>
+            <details class="qa-transcript"><summary>Ler a transcrição do vídeo</summary><ol><li><strong>Revise o CNIS.</strong> Confira se o extrato tem todos os vínculos, salários e contribuições que você espera encontrar.</li><li><strong>Simule no Meu INSS.</strong> A opção Simular Aposentadoria mostra uma estimativa com base nos dados que o INSS já tem.</li><li><strong>Separe os documentos.</strong> Reúna carteira de trabalho, carnês e comprovantes dos períodos que faltam ou estão errados no sistema.</li></ol></details>
+          </div>
+        </details>
+        <details class="qa" id="contribuir-mais" data-topic="aposentadoria" data-video="videos/contribuir-mais.mp4" data-poster="videos/contribuir-mais.webp">
+          <summary><span class="qa-num" aria-hidden="true">03</span><span class="qa-q">Se eu contribuir com um valor maior, vou receber mais?</span><span class="qa-meta">Aposentadoria · <span class="qa-play" aria-hidden="true">▶</span> 0:36</span></summary>
+          <div class="qa-body">
+            <p>Pode receber, mas depende do conjunto das contribuições. Na regra geral, o valor parte da média de todos os salários de contribuição desde julho de 1994.</p><p>O benefício corresponde a 60% dessa média, mais 2% para cada ano que passar de 20 anos de contribuição (15 anos para mulheres), e fica sempre entre o salário mínimo e o teto do INSS. Antes de aumentar a contribuição, vale simular o impacto real.</p>
+            <p class="qa-links"><a class="qa-nojs" href="videos/contribuir-mais.mp4">Assistir ao vídeo (0:36)</a><a href="https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc103.htm" target="_blank" rel="noopener">Regras de cálculo na Emenda Constitucional 103</a></p>
+            <details class="qa-transcript"><summary>Ler a transcrição do vídeo</summary><ol><li><strong>Como é o cálculo.</strong> O valor parte da média de todos os salários de contribuição desde julho de 1994.</li><li><strong>O percentual.</strong> Na regra geral, são 60% da média, mais 2% por ano que passar de 20 anos de contribuição (15 para mulheres).</li><li><strong>Os limites.</strong> O valor fica entre o salário mínimo e o teto do INSS. Simule antes de aumentar a contribuição.</li></ol></details>
+          </div>
+        </details>
+        <details class="qa" id="carencia" data-topic="aposentadoria" data-video="videos/carencia.mp4" data-poster="videos/carencia.webp">
+          <summary><span class="qa-num" aria-hidden="true">04</span><span class="qa-q">Qual é a diferença entre carência e tempo de contribuição?</span><span class="qa-meta">Aposentadoria · <span class="qa-play" aria-hidden="true">▶</span> 0:36</span></summary>
+          <div class="qa-body">
+            <p>Carência é o número mínimo de contribuições mensais que alguns benefícios exigem. Na aposentadoria por idade, por exemplo, são 180 contribuições.</p><p>Tempo de contribuição é a soma dos períodos reconhecidos pelo INSS. Um mesmo período pode contar como tempo de contribuição e ter tratamento diferente para a carência, por isso vale analisar o histórico com cuidado.</p>
+            <p class="qa-links"><a class="qa-nojs" href="videos/carencia.mp4">Assistir ao vídeo (0:36)</a></p>
+            <details class="qa-transcript"><summary>Ler a transcrição do vídeo</summary><ol><li><strong>Carência.</strong> É o número mínimo de contribuições mensais que alguns benefícios exigem. Na aposentadoria por idade, são 180.</li><li><strong>Tempo de contribuição.</strong> É a soma de todos os períodos que o INSS reconhece para fins de aposentadoria.</li><li><strong>Nem sempre são iguais.</strong> Alguns períodos contam como tempo, mas não como carência. Por isso é importante analisar o histórico.</li></ol></details>
+          </div>
+        </details>
+        <details class="qa" id="doencas-incapacidade" data-topic="beneficios" data-video="videos/doencas-incapacidade.mp4" data-poster="videos/doencas-incapacidade.webp">
+          <summary><span class="qa-num" aria-hidden="true">05</span><span class="qa-q">Quais doenças dão direito a benefício por incapacidade?</span><span class="qa-meta">Benefícios · <span class="qa-play" aria-hidden="true">▶</span> 0:36</span></summary>
+          <div class="qa-body">
+            <p>Não existe uma lista fechada. O que garante o benefício é a incapacidade para o trabalho ou para a atividade habitual, comprovada na perícia do INSS.</p><p>Também é preciso ter qualidade de segurado e, em regra, 12 contribuições de carência. Acidentes de qualquer natureza e algumas doenças graves previstas em lei dispensam a carência.</p>
+            <p class="qa-links"><a class="qa-nojs" href="videos/doencas-incapacidade.mp4">Assistir ao vídeo (0:36)</a><a href="https://www.gov.br/inss/pt-br/direitos-e-deveres/beneficios-por-incapacidade/auxilio-por-incapacidade-temporaria" target="_blank" rel="noopener">Requisitos do benefício por incapacidade no INSS</a></p>
+            <details class="qa-transcript"><summary>Ler a transcrição do vídeo</summary><ol><li><strong>Não é a doença em si.</strong> O que garante o benefício é a incapacidade para o trabalho, comprovada na perícia do INSS.</li><li><strong>Outros requisitos.</strong> Também é preciso ter qualidade de segurado e, em regra, 12 contribuições de carência.</li><li><strong>Quando não há carência.</strong> Acidentes de qualquer natureza e algumas doenças graves previstas em lei dispensam a carência.</li></ol></details>
+          </div>
+        </details>
+        <details class="qa" id="acumular-beneficios" data-topic="beneficios" data-video="videos/acumular-beneficios.mp4" data-poster="videos/acumular-beneficios.webp">
+          <summary><span class="qa-num" aria-hidden="true">06</span><span class="qa-q">Posso receber mais de um benefício ao mesmo tempo?</span><span class="qa-meta">Benefícios · <span class="qa-play" aria-hidden="true">▶</span> 0:36</span></summary>
+          <div class="qa-body">
+            <p>Depende da combinação. Aposentadoria e pensão por morte podem ser recebidas juntas: o benefício mais vantajoso é pago por inteiro e o outro, com redução por faixas.</p><p>Algumas combinações são proibidas. O auxílio-acidente não se acumula com aposentadoria, e o BPC, em regra, não se acumula com outro benefício da seguridade social.</p>
+            <p class="qa-links"><a class="qa-nojs" href="videos/acumular-beneficios.mp4">Assistir ao vídeo (0:36)</a><a href="https://www.gov.br/inss/pt-br/noticias/conheca-os-beneficios-que-podem-ser-acumulados" target="_blank" rel="noopener">Regras de acumulação no INSS</a></p>
+            <details class="qa-transcript"><summary>Ler a transcrição do vídeo</summary><ol><li><strong>Depende da combinação.</strong> Alguns benefícios podem ser recebidos juntos. Outros são proibidos por lei.</li><li><strong>Aposentadoria e pensão.</strong> Podem ser recebidas juntas: a mais vantajosa é paga por inteiro e a outra, com redução por faixas.</li><li><strong>Combinações proibidas.</strong> Auxílio-acidente não se acumula com aposentadoria. O BPC, em regra, não se acumula com outro benefício.</li></ol></details>
+          </div>
+        </details>
+        <details class="qa" id="bpc" data-topic="beneficios" data-video="videos/bpc.mp4" data-poster="videos/bpc.webp">
+          <summary><span class="qa-num" aria-hidden="true">07</span><span class="qa-q">O BPC é uma aposentadoria?</span><span class="qa-meta">Benefícios · <span class="qa-play" aria-hidden="true">▶</span> 0:36</span></summary>
+          <div class="qa-body">
+            <p>Não. O Benefício de Prestação Continuada (BPC/LOAS) é assistencial e não exige contribuições ao INSS. Ele é destinado a pessoas a partir de 65 anos e a pessoas com deficiência, em família de baixa renda.</p><p>Em regra, a renda familiar por pessoa deve ser de até 1/4 do salário mínimo, e a inscrição no CadÚnico precisa estar atualizada. O BPC não paga 13º salário e não gera pensão por morte.</p>
+            <p class="qa-links"><a class="qa-nojs" href="videos/bpc.mp4">Assistir ao vídeo (0:36)</a><a href="https://www.gov.br/mds/pt-br/acoes-e-programas/suas/beneficios-assistenciais/beneficio-assistencial-ao-idoso-e-a-pessoa-com-deficiencia-bpc" target="_blank" rel="noopener">Critérios do BPC no gov.br</a></p>
+            <details class="qa-transcript"><summary>Ler a transcrição do vídeo</summary><ol><li><strong>Não é aposentadoria.</strong> O BPC/LOAS é um benefício assistencial e não exige contribuições ao INSS.</li><li><strong>Quem pode receber.</strong> Pessoas a partir de 65 anos e pessoas com deficiência de qualquer idade, em família de baixa renda.</li><li><strong>Diferenças importantes.</strong> O BPC não paga 13º e não gera pensão por morte. O CadÚnico precisa estar atualizado.</li></ol></details>
+          </div>
+        </details>
+        <details class="qa" id="conferir-cnis" data-topic="inss" data-video="videos/conferir-cnis.mp4" data-poster="videos/conferir-cnis.webp">
+          <summary><span class="qa-num" aria-hidden="true">08</span><span class="qa-q">Como conferir se o meu CNIS está correto?</span><span class="qa-meta">Meu INSS · <span class="qa-play" aria-hidden="true">▶</span> 0:36</span></summary>
+          <div class="qa-body">
+            <p>O CNIS reúne os vínculos, salários e contribuições registrados no INSS. Baixe o extrato no Meu INSS e compare cada período com a carteira de trabalho, os contracheques e os comprovantes de pagamento.</p><p>Se faltar um vínculo ou um valor estiver diferente, anote o período e reúna os documentos que comprovam a informação.</p>
+            <p class="qa-links"><a class="qa-nojs" href="videos/conferir-cnis.mp4">Assistir ao vídeo (0:36)</a><a href="guia-cnis.html">Ler o guia e o checklist do CNIS</a></p>
+            <details class="qa-transcript"><summary>Ler a transcrição do vídeo</summary><ol><li><strong>Baixe o extrato.</strong> No Meu INSS, busque Extrato de Contribuição (CNIS) e salve uma cópia.</li><li><strong>Confira cada período.</strong> Compare vínculos e datas com a carteira de trabalho. Confira também salários e recolhimentos.</li><li><strong>Separe os comprovantes.</strong> Se faltar vínculo ou pagamento, anote o período e reúna os documentos que comprovam a informação.</li></ol></details>
+          </div>
+        </details>
+        <details class="qa" id="acompanhar-pedido" data-topic="inss" data-video="videos/acompanhar-pedido.mp4" data-poster="videos/acompanhar-pedido.webp">
+          <summary><span class="qa-num" aria-hidden="true">09</span><span class="qa-q">Como acompanhar meu pedido no INSS?</span><span class="qa-meta">Meu INSS · <span class="qa-play" aria-hidden="true">▶</span> 0:36</span></summary>
+          <div class="qa-body">
+            <p>Entre no site ou no aplicativo Meu INSS com sua conta gov.br e abra a opção Consultar Pedidos.</p><p>Ali você vê o andamento, as exigências e o prazo para respondê-las. Quando sair a decisão, leia a comunicação para entender o resultado e o motivo.</p>
+            <p class="qa-links"><a class="qa-nojs" href="videos/acompanhar-pedido.mp4">Assistir ao vídeo (0:36)</a><a href="https://meu.inss.gov.br/" target="_blank" rel="noopener">Acessar o Meu INSS</a></p>
+            <details class="qa-transcript"><summary>Ler a transcrição do vídeo</summary><ol><li><strong>Abra Consultar Pedidos.</strong> Entre no Meu INSS com sua conta gov.br e abra os detalhes do seu requerimento.</li><li><strong>Leia as exigências.</strong> Se o INSS pedir algum documento, confira exatamente o que foi solicitado e o prazo para responder.</li><li><strong>Consulte a decisão.</strong> Quando sair a decisão, abra a comunicação para ler o resultado e o motivo.</li></ol></details>
+          </div>
+        </details>
+        <details class="qa" id="pedido-negado" data-topic="inss" data-video="videos/pedido-negado.mp4" data-poster="videos/pedido-negado.webp">
+          <summary><span class="qa-num" aria-hidden="true">10</span><span class="qa-q">O que fazer se o INSS negar meu pedido?</span><span class="qa-meta">Meu INSS · <span class="qa-play" aria-hidden="true">▶</span> 0:36</span></summary>
+          <div class="qa-body">
+            <p>Leia a carta de decisão no Meu INSS para entender exatamente o motivo da negativa.</p><p>Se discordar, é possível recorrer ao Conselho de Recursos da Previdência Social no prazo de 30 dias contados da ciência da decisão. Dependendo do caso, também é possível fazer um novo pedido com mais documentos ou buscar a Justiça Federal.</p>
+            <p class="qa-links"><a class="qa-nojs" href="videos/pedido-negado.mp4">Assistir ao vídeo (0:36)</a><a href="https://www.gov.br/pt-br/servicos/apresentar-recurso-ordinario-inicial" target="_blank" rel="noopener">Serviço oficial de recurso ao INSS</a></p>
+            <details class="qa-transcript"><summary>Ler a transcrição do vídeo</summary><ol><li><strong>Leia o motivo.</strong> Abra a carta de decisão no Meu INSS e veja exatamente por que o pedido foi negado.</li><li><strong>Atenção ao prazo.</strong> O recurso ao Conselho de Recursos da Previdência Social deve ser feito em até 30 dias da ciência da decisão.</li><li><strong>Outros caminhos.</strong> Conforme o caso, cabe um novo pedido com mais documentos ou uma ação na Justiça Federal.</li></ol></details>
+          </div>
+        </details>
+          <p class="qa-more">Não encontrou a sua dúvida? <a href="https://wa.me/5569992978268?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20tenho%20uma%20d%C3%BAvida%20previdenci%C3%A1ria." target="_blank" rel="noopener">Pergunte pelo WhatsApp</a></p>
+        </div>
+        <aside class="qa-stage" aria-label="Vídeo da pergunta selecionada" hidden>
+          <div class="qa-player">
+            <video controls playsinline preload="none"></video>
+          </div>
+          <div class="qa-stage-copy" aria-live="polite"></div>
+        </aside>
       </div>
-      <dialog class="video-dialog" aria-labelledby="video-titulo">
-        <div class="video-dialog-header"><h3 id="video-titulo"></h3><form method="dialog"><button type="submit" autofocus>Fechar</button></form></div>
-        <video controls playsinline preload="none"></video>
-        <details class="video-dialog-transcript"><summary>Ler a transcrição</summary><div></div></details>
-      </dialog>
+      <p class="qa-sources">Tutoriais oficiais do INSS: <a href="https://www.gov.br/inss/pt-br/centrais-de-conteudo/videos/conheca-o-meu-inss" target="_blank" rel="noopener">Conheça o aplicativo Meu INSS</a> · <a href="https://www.gov.br/inss/pt-br/centrais-de-conteudo/videos/meu-inss-como-solicitar-um-servico" target="_blank" rel="noopener">Como solicitar um serviço</a></p>
     </div>
   </section>
+
   <section class="service" id="meu-inss" aria-labelledby="inss-titulo">
     <div class="wrap section service-layout">
       <div><p class="eyebrow">Serviços oficiais</p><h2 id="inss-titulo">Como usar o Meu INSS</h2><a class="button" href="https://meu.inss.gov.br/">Acessar o Meu INSS</a></div>
@@ -218,37 +283,6 @@
         <li><strong>Acompanhe o andamento</strong><p>Em “Consultar Pedidos”, verifique o andamento, eventuais exigências e o prazo para respondê-las.</p></li>
       </ol>
     </div>
-  </section>
-  <section class="wrap section faq" id="duvidas" aria-labelledby="duvidas-titulo">
-    <h2 id="duvidas-titulo">Dúvidas frequentes</h2>
-    <details>
-      <summary>Quanto tempo preciso contribuir para me aposentar?</summary>
-      <p>Depende da modalidade e de quando você começou a contribuir. A regra aplicável pode combinar idade, tempo de contribuição e carência. Quem já contribuía antes da reforma de 2019 pode se enquadrar em uma regra de transição. O Meu INSS estima quanto falta com base nos registros disponíveis.</p>
-      <p><a href="https://www.gov.br/pt-br/servicos/simular-aposentadoria">Simular aposentadoria no Meu INSS</a></p>
-    </details>
-    <details>
-      <summary>Quais doenças podem dar direito a benefício por incapacidade?</summary>
-      <p>Doenças de diferentes tipos podem dar direito ao benefício quando a incapacidade para o trabalho está comprovada e os demais requisitos são atendidos. O INSS considera o impacto da condição nas suas atividades, a qualidade de segurado e a carência, quando exigida. Algumas doenças e situações dispensam a carência.</p>
-      <p><a href="https://www.gov.br/inss/pt-br/direitos-e-deveres/beneficios-por-incapacidade/auxilio-por-incapacidade-temporaria">Consultar os requisitos no INSS</a></p>
-    </details>
-    <details>
-      <summary>O que preciso conferir antes de pedir a aposentadoria?</summary>
-      <p>Identifique a modalidade e confira se você cumpre seus requisitos de idade, carência ou tempo de contribuição. Revise vínculos, contribuições e remunerações no CNIS e reúna os comprovantes dos períodos que precisam ser demonstrados, inclusive os de atividade rural, quando for o caso.</p>
-      <p><a href="guia-cnis.html">Ler o checklist do CNIS</a></p>
-    </details>
-    <details>
-      <summary>Se eu contribuir com um valor maior, quanto vou receber do INSS?</summary>
-      <p>O valor depende do benefício, do histórico de contribuições, da regra de cálculo e dos limites aplicáveis. Uma contribuição maior pode alterar a média usada em alguns cálculos, mas o impacto depende do conjunto das contribuições e da regra do benefício.</p>
-      <p><a href="https://www.planalto.gov.br/ccivil_03/constituicao/emendas/emc/emc103.htm">Consultar as regras de cálculo na Emenda Constitucional 103</a></p>
-    </details>
-    <details>
-      <summary>Posso receber mais de um benefício ao mesmo tempo?</summary>
-      <p>Depende da combinação. Aposentadoria e pensão por morte podem ser recebidas juntas, mas, conforme a regra aplicável, um dos valores pode ser reduzido. Já o auxílio-acidente é incompatível com aposentadoria, e o BPC, em regra, é incompatível com aposentadoria ou pensão previdenciária recebida pela mesma pessoa.</p>
-      <p><a href="https://www.gov.br/inss/pt-br/noticias/conheca-os-beneficios-que-podem-ser-acumulados">Consultar as regras de acumulação no INSS</a></p>
-    </details>
-    <details><summary>Qual é a diferença entre carência e tempo de contribuição?</summary><p>Carência é o número mínimo de contribuições mensais exigidas para alguns benefícios. Tempo de contribuição é a duração dos períodos reconhecidos para fins previdenciários. Um período pode contar para tempo de contribuição e ter tratamento diferente para carência.</p></details>
-    <details><summary>O que fazer se o INSS negar meu pedido?</summary><p>Leia a comunicação da decisão no Meu INSS para identificar o motivo. Se discordar, consulte o serviço oficial de recurso ordinário, que informa a documentação exigida e o prazo para recorrer.</p><p><a href="https://www.gov.br/pt-br/servicos/apresentar-recurso-ordinario-inicial">Consultar o serviço de recurso ordinário</a></p></details>
-    <details><summary>O BPC é uma aposentadoria?</summary><p>O Benefício de Prestação Continuada (BPC) é um benefício assistencial para pessoas com deficiência e pessoas a partir de 65 anos que atendam aos critérios do programa. Ele independe de contribuição ao INSS.</p><p><a href="https://www.gov.br/mds/pt-br/acoes-e-programas/suas/beneficios-assistenciais/beneficio-assistencial-ao-idoso-e-a-pessoa-com-deficiencia-bpc">Conhecer os critérios do BPC</a></p></details>
   </section>
   <section class="wrap insta-strip" aria-label="Instagram do escritório">
     <div>
@@ -274,10 +308,9 @@
             Centro, Ji-Paraná – RO, CEP 76900-020
           </address>
           <ul class="contact-list">
-            <li><a href="https://wa.me/5569992978268?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener"><strong>WhatsApp</strong> (69) 99297-8268</a></li>
-            <li><a href="tel:+5569992978268"><strong>Telefone</strong> (69) 99297-8268</a></li>
-            <li><a class="office-email" href="mailto:advocaciafernandesesa@gmail.com"><strong>E-mail</strong> advocaciafernandesesa@gmail.com</a></li>
-            <li><a href="https://www.instagram.com/fernandesesa.adv/" target="_blank" rel="noopener"><strong>Instagram</strong> @fernandesesa.adv</a></li>
+            <li><a href="https://wa.me/5569992978268?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener"><span class="contact-label">WhatsApp</span><span class="contact-value">(69) 99297-8268</span></a></li>
+            <li><a href="mailto:advocaciafernandesesa@gmail.com"><span class="contact-label">E-mail</span><span class="contact-value">advocaciafernandesesa@gmail.com</span></a></li>
+            <li><a href="https://www.instagram.com/fernandesesa.adv/" target="_blank" rel="noopener"><span class="contact-label">Instagram</span><span class="contact-value">@fernandesesa.adv</span></a></li>
           </ul>
           <h4 class="hours-title">Horário de atendimento</h4>
           <p class="hours">Segunda a sexta, das 8h às 18h<br>Sábado e domingo: fechado</p>
@@ -285,10 +318,10 @@
         <div class="office-map">
           <h3>Localização</h3>
           <div class="office-map-actions">
-            <a class="button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua%20Raimundo%20Alves%20de%20Abreu%20da%20Silva%2C%20255%2C%20Centro%2C%20Ji-Paran%C3%A1%20-%20RO%2C%2076900-020">Traçar rota no Google Maps</a>
-            <button type="button" class="map-toggle" aria-controls="mapa-escritorio" aria-expanded="false" data-map-toggle hidden>Mostrar mapa</button>
+            <a class="button" href="https://www.google.com/maps/dir/?api=1&amp;destination=Rua%20Raimundo%20Alves%20de%20Abreu%20da%20Silva%2C%20255%2C%20Centro%2C%20Ji-Paran%C3%A1%20-%20RO%2C%2076900-020" target="_blank" rel="noopener"><svg class="ig" aria-hidden="true" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 1 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Google Maps</a>
+            <a class="button button-outline" href="https://waze.com/ul?q=Rua%20Raimundo%20Alves%20de%20Abreu%20da%20Silva%2C%20255%2C%20Centro%2C%20Ji-Paran%C3%A1%20-%20RO%2C%2076900-020&amp;navigate=yes" target="_blank" rel="noopener"><svg class="ig" aria-hidden="true" viewBox="0 0 24 24"><path d="M5 16V11l2-5h10l2 5v5"/><path d="M3 16h18v3H3zM7 19v1.5M17 19v1.5M5 11h14"/></svg>Waze</a>
           </div>
-          <div id="mapa-escritorio" data-map-src="https://maps.google.com/maps?q=Rua%20Raimundo%20Alves%20de%20Abreu%20da%20Silva%2C%20255%2C%20Centro%2C%20Ji-Paran%C3%A1%20-%20RO%2C%2076900-020&amp;output=embed" hidden></div>
+          <iframe class="office-map-frame" title="Mapa com a localização da Fernandes &amp; Sá Advocacia em Ji-Paraná" src="https://maps.google.com/maps?q=Rua%20Raimundo%20Alves%20de%20Abreu%20da%20Silva%2C%20255%2C%20Centro%2C%20Ji-Paran%C3%A1%20-%20RO%2C%2076900-020&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
         </div>
       </section>
     </div>
@@ -317,41 +350,42 @@
 <footer class="site-footer">
   <div class="wrap footer-directory">
     <div class="footer-brand">
-      <a href="#" aria-label="Voltar ao início"><img class="logo" src="marca.svg" alt="Fernandes &amp; Sá Advocacia" width="224" height="62"></a>
-      <p>Informação sobre Direito Previdenciário. Os requisitos e documentos variam conforme o benefício e a situação de cada pessoa.</p>
-      <p class="footer-contact">Rua Raimundo Alves de Abreu da Silva, 255, Centro, Ji-Paraná – RO<br><a href="tel:+5569992978268">(69) 99297-8268</a> · Seg. a sex., 8h às 18h</p>
+      <a href="#" aria-label="Fernandes &amp; Sá Advocacia, início"><img class="logo" src="marca.svg" alt="Fernandes &amp; Sá Advocacia" width="224" height="62"></a>
+      <p>Advocacia em Direito Previdenciário e Seguridade Social em Ji-Paraná, Rondônia.</p>
       <div class="footer-social">
-        <a href="https://www.instagram.com/fernandesesa.adv/" target="_blank" rel="noopener" aria-label="Instagram"><svg class="ig" aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".9" fill="currentColor" stroke="none"/></svg></a>
-        <a href="https://wa.me/5569992978268?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ig" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5 8 8 0 0 1-2.7-.5L5 20l1.4-4.1a7.5 7.5 0 1 1 13.6-4.4Z"/></svg></a>
-        <a href="mailto:advocaciafernandesesa@gmail.com" aria-label="E-mail"><svg class="ig" aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></a>
+        <a href="https://www.instagram.com/fernandesesa.adv/" target="_blank" rel="noopener" aria-label="Instagram @fernandesesa.adv"><svg class="ig" aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".9" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://wa.me/5569992978268?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener" aria-label="WhatsApp (69) 99297-8268"><svg class="ig" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5 8 8 0 0 1-2.7-.5L5 20l1.4-4.1a7.5 7.5 0 1 1 13.6-4.4Z"/></svg></a>
+        <a href="mailto:advocaciafernandesesa@gmail.com" aria-label="E-mail advocaciafernandesesa@gmail.com"><svg class="ig" aria-hidden="true" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></a>
       </div>
     </div>
+    <nav aria-labelledby="rodape-servicos">
+      <h2 id="rodape-servicos">Serviços</h2>
+      <a href="#servico-aposentadorias">Aposentadorias</a>
+      <a href="#servico-bpc-loas">BPC/LOAS</a>
+      <a href="#servico-incapacidade">Benefícios por incapacidade</a>
+      <a href="#servico-pensao">Pensão por morte</a>
+      <a href="#servico-revisoes">Revisões e planejamento</a>
+      <a href="#servico-recursos">Recursos e ações judiciais</a>
+    </nav>
     <nav aria-labelledby="rodape-escritorio">
       <h2 id="rodape-escritorio">Escritório</h2>
-      <a href="#atuacao">Áreas de atuação</a>
       <a href="#sobre">Sobre nós</a>
       <a href="#advogados">Advogados</a>
-      <a href="#contato">Contato</a>
-      <a href="privacidade.html">Política de privacidade</a>
-      <a href="privacidade.html#cookies">Política de cookies</a>
+      <a href="#duvidas">Dúvidas em vídeo</a>
+      <a href="guia-cnis.html">Guia do CNIS</a>
+      <a href="#contato">Contato e localização</a>
     </nav>
-    <nav aria-labelledby="rodape-guias">
-      <h2 id="rodape-guias">Guias previdenciários</h2>
-      <a href="#temas">Temas em destaque</a>
-      <a href="#aposentadoria">Aposentadoria</a>
-      <a href="#beneficios">Benefícios do INSS</a>
-      <a href="#cnis">Contribuições e CNIS</a>
-      <a href="#videos">Vídeos explicativos</a>
-    </nav>
-    <nav aria-labelledby="rodape-servicos">
-      <h2 id="rodape-servicos">Serviços oficiais</h2>
-      <a href="https://meu.inss.gov.br/">Meu INSS</a>
-      <a href="https://www.gov.br/inss/pt-br">Portal do INSS</a>
-      <a href="https://www.gov.br/pt-br/servicos/emitir-extrato-de-contribuicao-cnis">Emitir extrato CNIS</a>
-    </nav>
+    <div class="footer-hours" role="group" aria-labelledby="rodape-atendimento">
+      <h2 id="rodape-atendimento">Atendimento</h2>
+      <p class="open-status" data-open-status hidden></p>
+      <p>Segunda a sexta, das 8h às 18h<br><small>Horário de Rondônia. Exceto feriados.</small></p>
+      <p>Rua Raimundo Alves de Abreu da Silva, 255<br>Centro, Ji-Paraná – RO</p>
+      <a class="button button-whatsapp button-small" href="https://wa.me/5569992978268?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento." target="_blank" rel="noopener"><svg class="ig" aria-hidden="true" viewBox="0 0 24 24"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5 8 8 0 0 1-2.7-.5L5 20l1.4-4.1a7.5 7.5 0 1 1 13.6-4.4Z"/></svg>WhatsApp (69) 99297-8268</a>
+    </div>
   </div>
   <div class="wrap footer-legal">
-    <small>© Fernandes &amp; Sá Advocacia</small>
+    <small>© 2026 Fernandes &amp; Sá Advocacia. Conteúdo informativo, que não substitui a análise individual de cada caso.</small>
+    <nav aria-label="Documentos legais"><a href="privacidade.html">Política de privacidade</a><a href="cookies.html">Política de cookies</a></nav>
     <small>Desenvolvido por JL Tecnologia</small>
   </div>
 </footer>
