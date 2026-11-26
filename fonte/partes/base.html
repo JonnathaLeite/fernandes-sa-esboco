@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ titulo_pagina }}</title>
+    <meta name="description" content="{{ descricao }}" />
+    <meta name="theme-color" content="#792930" />
+    <link rel="canonical" href="{{ url }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="Fernandes &amp; Sá Advocacia" />
+    <meta property="og:title" content="{{ titulo_pagina }}" />
+    <meta property="og:description" content="{{ descricao }}" />
+    <meta property="og:url" content="{{ url }}" />
+    <meta property="og:image" content="{{ imagem }}" />
+    <link rel="icon" href="{{ raiz }}assets/img/favicon.svg" type="image/svg+xml" />
+    <link
+      rel="preload"
+      href="{{ raiz }}assets/fontes/dmsans.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin />
+    <link rel="stylesheet" href="{{ raiz }}assets/css/estilo.css" />
+    <script src="{{ raiz }}assets/js/menu.js" defer></script>
+    <script src="{{ raiz }}assets/js/duvidas.js" defer></script>
+    <script src="{{ raiz }}assets/js/atendimento.js" defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LegalService",
+        "name": "Fernandes & Sá Advocacia",
+        "description": "Escritório de advocacia em Direito Previdenciário e Seguridade Social.",
+        "url": "https://jonnathaleite.github.io/fernandes-sa-esboco/",
+        "telephone": "+55 69 99297-8268",
+        "email": "advocaciafernandesesa@gmail.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Rua Raimundo Alves de Abreu da Silva, 255",
+          "addressLocality": "Ji-Paraná",
+          "addressRegion": "RO",
+          "postalCode": "76900-020",
+          "addressCountry": "BR"
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+            "opens": "08:00",
+            "closes": "18:00"
+          }
+        ],
+        "areaServed": "Ji-Paraná e região, Rondônia",
+        "sameAs": ["https://www.instagram.com/fernandesesa.adv/"]
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip" href="#conteudo">Ir para o conteúdo</a>
+    {{ cabecalho }}
+    <main id="conteudo">{{ capa }} {{ conteudo }}</main>
+    {{ rodape }}
+    <a
+      class="contact-float"
+      href="https://wa.me/5569992978268?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20um%20atendimento."
+      target="_blank"
+      rel="noopener"
+      aria-label="Conversar pelo WhatsApp">
+      <svg class="icone" aria-hidden="true" viewBox="0 0 24 24">
+        <path
+          d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5 8 8 0 0 1-2.7-.5L5 20l1.4-4.1a7.5 7.5 0 1 1 13.6-4.4Z" />
+        <path d="M9 11.5h7m-7 3h4" />
+      </svg>
+      <span>WhatsApp</span>
+    </a>
+  </body>
+</html>

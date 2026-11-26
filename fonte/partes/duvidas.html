@@ -1,0 +1,32 @@
+<section class="qa-section" id="duvidas" aria-labelledby="duvidas-titulo">
+  <div class="wrap section">
+    <h2 id="duvidas-titulo" class="sr-only">Perguntas frequentes</h2>
+    <div class="qa-topics" role="group" aria-label="Filtrar perguntas por tema" hidden>
+      <button type="button" data-topic="todos" aria-pressed="true">
+        Todas
+        <span>{{ total }}</span>
+      </button>
+      {{ filtros }}
+    </div>
+    <div class="qa-layout">
+      <div class="qa-list">
+        {{ perguntas }}
+        <p class="qa-more">
+          Não encontrou a sua dúvida?
+          <a
+            href="https://wa.me/5569992978268?text=Ol%C3%A1%21%20Vim%20pelo%20site%20e%20tenho%20uma%20d%C3%BAvida%20previdenci%C3%A1ria."
+            target="_blank"
+            rel="noopener">
+            Pergunte pelo WhatsApp
+          </a>
+        </p>
+      </div>
+      <aside class="qa-stage" aria-label="Vídeo da pergunta selecionada" hidden>
+        <div class="qa-player">
+          <video controls playsinline preload="none"></video>
+        </div>
+        <div class="qa-stage-copy" aria-live="polite"></div>
+      </aside>
+    </div>
+  </div>
+</section>

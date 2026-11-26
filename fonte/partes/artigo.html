@@ -1,0 +1,36 @@
+<article class="wrap artigo">
+  <p class="artigo-meta">
+    <time datetime="{{ data }}">{{ data_extenso }}</time>
+    · {{ autor }} · {{ leitura }} de leitura
+  </p>
+  <img
+    class="artigo-capa"
+    src="{{ raiz }}assets/img/blog/{{ slug }}.webp"
+    alt=""
+    width="1200"
+    height="675" />
+  <div class="artigo-corpo">{{ corpo }}</div>
+  <aside class="artigo-aviso">
+    <p>
+      Este artigo tem caráter informativo e reflete as regras vigentes na data de publicação. Cada
+      caso tem particularidades e depende da análise dos documentos.
+    </p>
+    <a
+      class="button"
+      href="https://wa.me/5569992978268?text=Ol%C3%A1%21%20Li%20o%20artigo%20do%20blog%20e%20gostaria%20de%20conversar%20sobre%20o%20meu%20caso."
+      target="_blank"
+      rel="noopener">
+      Conversar sobre o meu caso
+    </a>
+  </aside>
+</article>
+<section class="wrap section noticias" aria-labelledby="relacionados-titulo">
+  <h2 id="relacionados-titulo" class="titulo-duplo">
+    <span>Leia</span>
+    também
+  </h2>
+  <div class="post-grid">{{ relacionados }}</div>
+  <p class="noticias-todas">
+    <a class="button button-outline" href="{{ raiz }}blog.html">Ver todos os artigos</a>
+  </p>
+</section>

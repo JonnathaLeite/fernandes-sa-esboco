@@ -41,7 +41,7 @@ PERGUNTAS = [
             ("Simule no Meu INSS", "A opção Simular Aposentadoria mostra uma estimativa com base nos dados que o INSS já tem."),
             ("Separe os documentos", "Reúna carteira de trabalho, carnês e comprovantes dos períodos que faltam ou estão errados no sistema."),
         ],
-        "link": ("Ler o guia e o checklist do CNIS", "guia-cnis.html"),
+        "link": ("Leia: o que mudou nas regras de transição em 2026", "blog/regras-de-transicao-2026.html"),
     },
     {
         "slug": "contribuir-mais",
@@ -131,7 +131,7 @@ PERGUNTAS = [
             ("Confira cada período", "Compare vínculos e datas com a carteira de trabalho. Confira também salários e recolhimentos."),
             ("Separe os comprovantes", "Se faltar vínculo ou pagamento, anote o período e reúna os documentos que comprovam a informação."),
         ],
-        "link": ("Ler o guia e o checklist do CNIS", "guia-cnis.html"),
+        "link": ("Conheça o serviço de revisão e planejamento", "servicos.html#revisoes"),
     },
     {
         "slug": "acompanhar-pedido",
