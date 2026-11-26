@@ -183,47 +183,6 @@ menu: inicio
   </div>
 </section>
 
-<section class="wrap section" aria-labelledby="profissionais-titulo">
-  <div class="cabecalho-secao">
-    <div>
-      <p class="eyebrow">Equipe</p>
-      <h2 id="profissionais-titulo" class="titulo-duplo">
-        <span>Nossos</span>
-        profissionais
-      </h2>
-    </div>
-    <p><a class="button button-outline" href="{{ raiz }}profissionais.html">Conheça a equipe</a></p>
-  </div>
-  <div class="team-grid">
-    <a class="team-profile" href="{{ raiz }}profissionais.html#lucas-fernandes">
-      <img
-        class="team-photo"
-        src="{{ raiz }}assets/img/equipe/lucas.webp"
-        alt=""
-        width="480"
-        height="600"
-        loading="lazy" />
-      <div>
-        <h3>Dr. Lucas Renan Antunes Fernandes</h3>
-        <p>OAB/RO 11772</p>
-      </div>
-    </a>
-    <a class="team-profile" href="{{ raiz }}profissionais.html#matheus-sa">
-      <img
-        class="team-photo"
-        src="{{ raiz }}assets/img/equipe/matheus.webp"
-        alt=""
-        width="480"
-        height="600"
-        loading="lazy" />
-      <div>
-        <h3>Dr. Matheus Sá Santos</h3>
-        <p>OAB/RO 15992</p>
-      </div>
-    </a>
-  </div>
-</section>
-
 <section class="wrap insta-strip" aria-label="Instagram do escritório">
   <div>
     <p class="eyebrow">Instagram</p>
@@ -255,4 +214,18 @@ menu: inicio
   <p class="noticias-todas">
     <a class="button button-outline" href="{{ raiz }}blog.html">Ver todos os artigos</a>
   </p>
+</section>
+
+<section class="wrap section localizacao" aria-labelledby="localizacao-titulo">
+  <div class="cabecalho-secao">
+    <div>
+      <p class="eyebrow">Localização</p>
+      <h2 id="localizacao-titulo" class="titulo-duplo"><span>Como</span> chegar</h2>
+    </div>
+    <p>
+      Rua Raimundo Alves de Abreu da Silva, 255, Centro, Ji-Paraná – RO. Atendimento de segunda a
+      sexta, das 8h às 18h.
+    </p>
+  </div>
+  {{ mapa }}
 </section>

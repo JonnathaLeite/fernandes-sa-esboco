@@ -177,7 +177,7 @@ def montar(meta, conteudo, raiz, caminho_saida, extras):
 
 def main():
     artigos = carregar_artigos()
-    extras = {"duvidas": secao_duvidas()}
+    extras = {"duvidas": secao_duvidas(), "mapa": parte("mapa")}
 
     for caminho in sorted((FONTE / "paginas").glob("*.html")):
         meta, conteudo = ler_documento(caminho)

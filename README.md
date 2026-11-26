@@ -20,7 +20,7 @@ Site estático em HTML, CSS e JavaScript puro, sem framework e sem dependências
 │   └── videos/               Perguntas frequentes e gerador dos vídeos
 ├── assets/
 │   ├── css/estilo.css        Estilos, organizados por seção (índice no topo do arquivo)
-│   ├── js/                   menu.js · duvidas.js · atendimento.js
+│   ├── js/                   menu.js · duvidas.js · horario.js
 │   ├── img/                  Logo, fotos, equipe e capas do blog
 │   ├── fontes/               DM Sans e Gelasio (WOFF2, licença OFL)
 │   └── videos/               Vídeos das dúvidas frequentes
@@ -72,13 +72,13 @@ Para usar vídeos gravados pelos advogados, basta manter o mesmo nome de arquivo
 
 ## Onde mudar o quê
 
-| O que mudar                     | Onde                                            |
-| ------------------------------- | ----------------------------------------------- |
-| Menu                            | Lista `MENU` em `ferramentas/site/construir.py` |
-| Cabeçalho e rodapé              | `fonte/partes/cabecalho.html` e `rodape.html`   |
-| Cores, fontes e espaçamentos    | Variáveis no início de `assets/css/estilo.css`  |
-| Horário do aviso aberto/fechado | Constantes `ABRE` e `FECHA` em `atendimento.js` |
-| Fotos dos advogados             | `assets/img/equipe/` (proporção 4:5)            |
+| O que mudar                      | Onde                                            |
+| -------------------------------- | ----------------------------------------------- |
+| Menu                             | Lista `MENU` em `ferramentas/site/construir.py` |
+| Cabeçalho e rodapé               | `fonte/partes/cabecalho.html` e `rodape.html`   |
+| Cores, fontes e espaçamentos     | Variáveis no início de `assets/css/estilo.css`  |
+| Horários (aberto/fechado e mapa) | Constantes no início de `horario.js`            |
+| Fotos dos advogados              | `assets/img/equipe/` (proporção 4:5)            |
 
 ## Padrões do projeto
 

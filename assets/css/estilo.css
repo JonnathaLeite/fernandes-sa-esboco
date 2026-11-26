@@ -740,6 +740,7 @@ img {
 }
 
 .insta-strip {
+  margin-top: clamp(3rem, 7vw, 5rem);
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -762,53 +763,6 @@ img {
   letter-spacing: -0.02em;
 }
 
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem;
-}
-
-.team-profile {
-  display: grid;
-  grid-template-columns: clamp(110px, 28%, 170px) 1fr;
-  gap: clamp(1rem, 3vw, 1.75rem);
-  align-items: center;
-  padding: clamp(1.25rem, 4vw, 2rem);
-  border: 1px solid var(--linha);
-  border-top: 2px solid var(--vinho);
-  border-radius: var(--raio);
-  background: var(--claro);
-  color: var(--texto);
-  text-decoration: none;
-  transition: box-shadow 0.2s;
-}
-
-.team-profile:hover {
-  box-shadow: var(--sombra);
-}
-
-.team-photo {
-  display: block;
-  width: 100%;
-  height: auto;
-  aspect-ratio: 4 / 5;
-  border-radius: 10px;
-  background: #ead9d9;
-  object-fit: cover;
-}
-
-.team-profile h3 {
-  font-size: clamp(1.4rem, 2.6vw, 1.9rem);
-  line-height: 1.18;
-  overflow-wrap: anywhere;
-}
-
-.team-profile p {
-  margin: 0.5rem 0 0;
-  color: var(--vinho);
-  font-weight: 600;
-}
-
 @media (max-width: 900px) {
   .servicos-resumo {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -827,19 +781,12 @@ img {
 }
 
 @media (max-width: 580px) {
-  .servicos-resumo,
-  .team-grid {
+  .servicos-resumo {
     grid-template-columns: 1fr;
   }
 
   .insta-text {
     font-size: 1.25rem;
-  }
-}
-
-@media (max-width: 400px) {
-  .team-profile {
-    grid-template-columns: 96px 1fr;
   }
 }
 
@@ -1441,6 +1388,17 @@ img {
   border: 1px solid var(--linha);
   border-radius: var(--raio);
   background: #ece6e3;
+  transition: filter 0.4s;
+}
+
+/* À noite (horário de Rondônia), o mapa recebe um filtro escuro. Ver horario.js. */
+.office-map-frame.mapa-noite {
+  border-color: #3b2d33;
+  filter: invert(0.92) hue-rotate(180deg) brightness(0.95) contrast(0.9);
+}
+
+.localizacao {
+  padding-top: 0;
 }
 
 @media (max-width: 860px) {
